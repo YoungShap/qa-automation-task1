@@ -16,20 +16,19 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           npm ci || npm i
           npx playwright install --with-deps
 
-      - name: Run UI tests
+      - name: Run tests (UI + API)
         env:
-          PAYMENT_URL: ${{ secrets.PAYMENT_URL }}  # שים ב-Secrets
-        run: npx playwright test tests/ui --reporter=html
-
-      - name: Run API tests
-        env:
-          API_URL: ${{ secrets.API_URL }}          # שים ב-Secrets
-        run: npx playwright test tests/api --reporter=html
+          PAYMENT_URL: ${{ secrets.PAYMENT_URL }}
+          API_URL: ${{ secrets.API_URL }}
+          API_PAYLOAD: ${{ secrets.API_PAYLOAD }} 
+          API_TOKEN: ${{ secrets.API_TOKEN }}      
+  
+        run: npx playwright test tests/UI tests/API --reporter=list,html
 
       - name: Upload HTML report
         if: always()
