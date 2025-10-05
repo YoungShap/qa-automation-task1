@@ -2,7 +2,6 @@ const { test, expect } = require('@playwright/test');
 
 const API_URL = process.env.API_URL || '';
 const API_TOKEN = process.env.API_TOKEN || '';
-// בחר payload: "multipart" או "json" דרך ENV
 const API_PAYLOAD_MODE = (process.env.API_PAYLOAD || 'multipart').toLowerCase();
 
 test.describe('createPaymentProcess API', () => {
@@ -42,7 +41,7 @@ test.describe('createPaymentProcess API', () => {
       }
     } catch { /* ignore */ }
 
-    // לוג דיבאג קצר ומועיל:
+    // לוג דיבאג קצר :
     console.log('[API]', { status: res.status(), ms, ct, bodyPreview: String(bodyText).slice(0, 300) });
 
     return { res, bodyObj, bodyText };

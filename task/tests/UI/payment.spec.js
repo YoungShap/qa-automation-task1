@@ -17,7 +17,7 @@ test.describe('Payment UI', () => {
     cvv = '123',
     sum = '100'
   } = {}) {
-    // שדות "חיצוניים" (שם/סכום) – נסה לייבל/טסט-אידי:
+    // שדות "חיצוניים" (שם/סכום) :
     await page.getByLabel(/name|full name|שם/i).fill(name).catch(() => {
       return page.locator('[data-testid="full-name"]').fill(name).catch(() => {});
     });
@@ -57,7 +57,6 @@ test.describe('Payment UI', () => {
     await payBtn.click();
     await nav;
 
-    // אם יש data-testid ל-success – עדיף:
     const successById = page.locator('[data-testid="payment-success"]').first();
     if (await successById.count()) {
       await expect(successById).toBeVisible({ timeout: 15000 });
