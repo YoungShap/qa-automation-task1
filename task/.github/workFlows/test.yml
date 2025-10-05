@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install deps
         run: |
           npm ci || npm i
           npx playwright install --with-deps
@@ -26,8 +26,7 @@ jobs:
           PAYMENT_URL: ${{ secrets.PAYMENT_URL }}
           API_URL: ${{ secrets.API_URL }}
           API_PAYLOAD: ${{ secrets.API_PAYLOAD }} 
-          API_TOKEN: ${{ secrets.API_TOKEN }}      
-  
+          API_TOKEN: ${{ secrets.API_TOKEN }}     
         run: npx playwright test tests/UI tests/API --reporter=list,html
 
       - name: Upload HTML report

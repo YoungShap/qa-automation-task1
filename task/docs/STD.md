@@ -93,10 +93,10 @@
 ## 🔗 טבלת עקיבות 
 | מזהה תרחיש | כיסוי בקובץ אוטומציה |
 |-------------|---------------------|
-| UI-1 | `tests/ui/payment.spec.js` — תשלום תקין |
-| UI-2 | `tests/ui/payment.spec.js` — סכום לא תקין |
-| UI-6 | `tests/ui/payment.spec.js` — טיפול ב־iframe |
-| API-1,2,3 | `tests/api/payment.api.spec.js` — כל הבדיקות העיקריות |
+| UI-1 | `tests/UI/payment.spec.js` — תשלום תקין |
+| UI-2 | `tests/UI/payment.spec.js` — סכום לא תקין |
+| UI-6 | `tests/UI/payment.spec.js` — טיפול ב־iframe |
+| API-1,2,3 | `tests/API/payment.api.spec.js` — כל הבדיקות העיקריות |
 
 ---
 
